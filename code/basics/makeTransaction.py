@@ -31,14 +31,20 @@ algod_client = algod.AlgodClient(algod_token, algod_address, headers)
 
 
 params = algod_client.suggested_params()
-
+# genesis hash
 gh = params.gh
+# starting round
 first_valid_round = params.first
+# ending round
 last_valid_round = params.last
+# fee
 fee = params.min_fee
+# amount to send
 send_amount = 1
 
+# from
 existing_account = account_public_key
+# to
 send_to_address = "LDGUF6ZQKGFTODZXU37XGR5DEPCCQSJMZ7ZHEKNA6647GI6T2NQ7RDVHFE"
 
 # Create and sign transaction
@@ -46,8 +52,10 @@ tx = transaction.PaymentTxn(existing_account, fee, first_valid_round, last_valid
 signed_tx = tx.sign(account_private_key)
 
 try:
+    # sending transaction 
     algod_client.send_transaction(signed_tx)
+    # printing transaction hash
     print('Transaction send with transaction Hash (ID)', signed_tx.transaction.get_txid())
-    # 
 except Exception as e:
+    # if any error occurrs it will log error
     print('Error',e)
