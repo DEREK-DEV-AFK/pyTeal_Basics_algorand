@@ -3,7 +3,7 @@
 through pyTEAL developers can write Algorand Smart Contracts (ASC) in python
 
 ## Dependencies 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
 
 ```bash
 # pyTEAL 
