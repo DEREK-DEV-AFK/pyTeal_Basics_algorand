@@ -1,6 +1,6 @@
 # Basics of pyTEAL 
 
-through pyTEAL developers can write Algorand Smart Contracts (ASC) in python
+through pyTEAL developers can write Algorand Smart Contracts (ASC) in python. And sending transaction with algoSDK through PureStake API
 
 ## Dependencies 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
