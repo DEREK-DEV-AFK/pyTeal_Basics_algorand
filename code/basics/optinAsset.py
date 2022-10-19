@@ -3,7 +3,7 @@ from algosdk import transaction, account
 from algosdk.v2client import algod
 
 # account details
-account_private_key = 'BYd52rLWbunee8UdIXNPA9eN5KjDbcOba0+T/1bHo4OuarLKGXgXW7fUdF/VsI3yqQ9chv7wz1AizqNMv43vzA=='
+account_private_key = 'yPgFy8TQqcKjC9ZTVHJo95WZzsPhProxozWcnNsYismPjVBYFKAh4hO3woZf9rKy7xgJVp4t31GpWNog3yBfWQ=='
 account_public_key = account.address_from_private_key(account_private_key)
 
 # transaction waiting function 
@@ -93,10 +93,11 @@ if not holding:
         txid = algod_client.send_transaction(signed_txn)
         print("Signed transaction with txid : {}".txid)
 
-        wait_for_confirmation(algod_client,txid)
+        wait_for_confirmation(algod_client,txid=signed_txn.transaction.get_txid())
     except Exception as err :
         print(err)
-
+else:
+    print('already opted')
    
    # print asset holdings
    #print_asset_holding(algod_client,account_public_key, 117040603)
