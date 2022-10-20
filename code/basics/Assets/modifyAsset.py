@@ -32,6 +32,9 @@ algod_client = algod.AlgodClient(algod_token, algod_address, headers)
 # getting params 
 params = algod_client.suggested_params()
 
+# other asset detail
+asset_id = 117040603
+
 # making transaction
 tx = transaction.AssetConfigTxn(
     sender=manager_address,
@@ -43,7 +46,7 @@ tx = transaction.AssetConfigTxn(
     reserve=manager_address,
     freeze=manager_address,
     clawback=manager_address,
-    index=117040603
+    index=asset_id
 )
 
 # signing tx
@@ -51,9 +54,8 @@ signedTx = tx.sign(manager_private_key)
 
 # sending transaction
 try:
-    txid2 = algod_client.send_transaction(signedTx)
-    txid = signedTx.transaction.get_txid()
-    print("transaction hash / tx ID : ",txid, "and", txid2)
+    txid = algod_client.send_transaction(signedTx)
+    print("transaction hash / tx ID : ",txid)
     wait_for_confirmation(algod_client, txid)
 
 except Exception as err:
