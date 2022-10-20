@@ -1,3 +1,6 @@
+# neeed to work on !!!!! , have some issues
+
+
 import json
 from algosdk import transaction, account
 from algosdk.v2client import algod
